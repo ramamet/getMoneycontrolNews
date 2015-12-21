@@ -1,8 +1,13 @@
+
+
 #loading libraries
 library(rvest)
 library(XML)
+
 #number of pages to be scraped
 start <- 1:4
+
+#news-scraping function 
 # Collect URLs as list:
 URLs <- paste("http://www.moneycontrol.com/news/all-news-All-",start,"-next-0.html",sep = "")
 scraper_internal <- function(x) {
@@ -16,5 +21,7 @@ headlines.df = headlines.df[-1,]
 dat <- data.frame(headlines.df)
 return(dat)
 }
+
+
 #resultant data frame
 NEWS <- do.call("rbind", lapply(URLs, scraper_internal))
