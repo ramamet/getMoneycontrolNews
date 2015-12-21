@@ -25,3 +25,6 @@ return(dat)
 
 #resultant data frame
 NEWS <- do.call("rbind", lapply(URLs, scraper_internal))
+
+
+
